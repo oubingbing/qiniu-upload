@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "upload": "plugin://myPlugin/upload"
+  }
+}

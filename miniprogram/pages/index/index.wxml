@@ -1,0 +1,5 @@
+<upload icon-info="{{icon}}" 
+        qiniu-info="{{qiniu}}" 
+        bind:success="uploadSuccess" 
+        bind:delete="deleteSuccess" 
+        bind:error="uploadError"/>
