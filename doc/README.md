@@ -1,5 +1,7 @@
 # 七牛传图插件说明文档
 
+#### GitHub项目地址：https://github.com/oubingbing/qiniu-upload
+
 ## 1.目前七牛传图插件信息
 
 AppId：wx00caa212d6710dcb
@@ -19,7 +21,7 @@ AppId：wx00caa212d6710dcb
   ],
   "plugins": { //配置插件
     "myPlugin": {
-      "version": "dev",
+      "version": "1.0.0",
       "provider": "wx00caa212d6710dcb" //appId
     }
   }
@@ -104,19 +106,19 @@ Page({
 ```
 [
     {
-    	"localPath": "http://tmp/wx00caa212d6710dcb.o6zAJs3oh85Zb1lJE8oWix57vny0.VzUQ2ebaMb87c6609a10aab7698d8645216baafb307e.jpg",
-    	"uploadResult": {
-    		"hash": "Fia6Y7gP4gXuaEsTfk5D9rslFWEz",
-    		"key": "tmp/wx00caa212d6710dcb.o6zAJs3oh85Zb1lJE8oWix57vny0.VzUQ2ebaMb87c6609a10aab7698d8645216baafb307e.jpg",
-    		"imageURL": "http://image.kucaroom.com/tmp/wx00caa212d6710dcb.o6zAJs3oh85Zb1lJE8oWix57vny0.VzUQ2ebaMb87c6609a10aab7698d8645216baafb307e.jpg"
-    	}
+      "localPath": "http://tmp/wx00caa212d6710dcb.o6zAJs3oh85Zb1lJE8oWix57vny0.VzUQ2ebaMb87c6609a10aab7698d8645216baafb307e.jpg",
+      "uploadResult": {
+        "hash": "Fia6Y7gP4gXuaEsTfk5D9rslFWEz",
+        "key": "tmp/wx00caa212d6710dcb.o6zAJs3oh85Zb1lJE8oWix57vny0.VzUQ2ebaMb87c6609a10aab7698d8645216baafb307e.jpg",
+        "imageURL": "http://image.kucaroom.com/tmp/wx00caa212d6710dcb.o6zAJs3oh85Zb1lJE8oWix57vny0.VzUQ2ebaMb87c6609a10aab7698d8645216baafb307e.jpg"
+      }
     }, {
-    	"localPath": "http://tmp/wx00caa212d6710dcb.o6zAJs3oh85Zb1lJE8oWix57vny0.2sYa1Iz3HXvM983982ba2e07d25e79212b11b8c75742.jpg",
-    	"uploadResult": {
-    		"hash": "FmNPIb1IJ9xraRdl26zXAjjyTjfz",
-    		"key": "tmp/wx00caa212d6710dcb.o6zAJs3oh85Zb1lJE8oWix57vny0.2sYa1Iz3HXvM983982ba2e07d25e79212b11b8c75742.jpg",
-    		"imageURL": "http://image.kucaroom.com/tmp/wx00caa212d6710dcb.o6zAJs3oh85Zb1lJE8oWix57vny0.2sYa1Iz3HXvM983982ba2e07d25e79212b11b8c75742.jpg"
-    	}
+      "localPath": "http://tmp/wx00caa212d6710dcb.o6zAJs3oh85Zb1lJE8oWix57vny0.2sYa1Iz3HXvM983982ba2e07d25e79212b11b8c75742.jpg",
+      "uploadResult": {
+        "hash": "FmNPIb1IJ9xraRdl26zXAjjyTjfz",
+        "key": "tmp/wx00caa212d6710dcb.o6zAJs3oh85Zb1lJE8oWix57vny0.2sYa1Iz3HXvM983982ba2e07d25e79212b11b8c75742.jpg",
+        "imageURL": "http://image.kucaroom.com/tmp/wx00caa212d6710dcb.o6zAJs3oh85Zb1lJE8oWix57vny0.2sYa1Iz3HXvM983982ba2e07d25e79212b11b8c75742.jpg"
+      }
     }
 ]
 ```
@@ -135,5 +137,5 @@ uploadResult：上传七牛后成功返回的参数
 
 ### 3.效果图
 
-![](http://article.qiuhuiyi.cn/Fr0H_T2yLxHeQ2C1ke5vG0LTzqQd)
+![](http://article.qiuhuiyi.cn/Fn7VeFpwPEadp9_2KEd1TaOHB1y7)
  
