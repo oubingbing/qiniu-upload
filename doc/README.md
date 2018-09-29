@@ -135,7 +135,23 @@ uploadResult：上传七牛后成功返回的参数
 {error: "bad token", imageURL: "http://image.kucaroom.com/undefined"}
 ```
 
-### 3.效果图
+### 3.绑定域名
+
+微信小程序需要在微信管理后台绑定相应的域名，否则会被拦截，根据自己七牛存储区域绑定对应的域名，存储区域与域名的对应如下所示
+
+```
+ECN : https://up.qbox.me
+NCN : https://up-z1.qbox.me
+SCN : https://up-z2.qbox.me
+NA  : https://up-na0.qbox.me
+
+```
+
+我选择的存储区域是华南，所以我的域名绑定如下所示
+
+![](http://article.qiuhuiyi.cn/FqoioivFkE4Aaf7fkahwGz4aQef0)
+
+### 4.效果图
 
 ![](http://article.qiuhuiyi.cn/Fn7VeFpwPEadp9_2KEd1TaOHB1y7)
  
