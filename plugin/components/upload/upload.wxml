@@ -19,7 +19,7 @@
       <image  class='upload-image' 
               bindtap='selectImage'
               style='width:{{iconInfo.width}};height:{{iconInfo.height}}'
-              src='/image/select-image.png'></image>
+              src='{{iconInfo.path}}'></image>
     </view>
   </view>
 </view> 

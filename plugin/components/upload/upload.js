@@ -6,7 +6,7 @@ Component({
    */
   data: {
     imageArray:[],
-    iconInfo:{},
+    iconInfo: {},
     qiniuInfo:{}
   },
   properties: {
@@ -14,7 +14,21 @@ Component({
         type: JSON,
         value: {},
         observer: function (newData, oldData) {
-          console.log("newData:" + JSON.stringify(newData));
+
+          if (newData.width == '' || newData.width == undefined) {
+            newData.width = '130rpx';
+          }
+
+          if (newData.height == '' || newData.height == undefined) {
+            newData.height = '130rpx';
+          }
+
+          if (newData.path == '' || newData.path == undefined){
+            newData.path = '/image/select-image.png';
+          }
+
+          console.log(newData)
+
           this.setData({
             iconInfo:newData
           })
@@ -24,7 +38,26 @@ Component({
       type: JSON,
       value: {},
       observer: function (newData, oldData) {
-        console.log("newData:" + JSON.stringify(newData));
+
+        if (newData.uploadNumber == '' || newData.uploadNumber == undefined){
+          newData.uploadNumber = 9;
+        }
+
+        if (newData.region == '' || newData.region == undefined) {
+          console.error("qiniu.region不能为空");
+          return false;
+        }
+
+        if (newData.token == '' || newData.token == undefined) {
+          console.error("qiniu.token不能为空");
+          return false;
+        }
+
+        if (newData.domain == '' || newData.domain == undefined) {
+          console.error("qiniu.domain不能为空");
+          return false;
+        }
+
         this.setData({
           qiniuInfo: newData
         })
@@ -107,7 +140,7 @@ Component({
               }else{
                 //上传失败
                 _this.triggerEvent("error", res);
-                console.error("上传失败:"+res);
+                console.error("上传失败:" + JSON.stringify(res));
               }
             })
 
