@@ -41,7 +41,7 @@ Error: Component is not found in path "pages/index/plugin:/wx00caa212d6710dcb/up
   ],
   "plugins": { //配置插件
     "myPlugin": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "provider": "wx00caa212d6710dcb" //appId
     }
   }
