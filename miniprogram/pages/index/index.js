@@ -1,5 +1,5 @@
 var plugin = requirePlugin("myPlugin") //引入插件
-const token = 'dJVFK8ibSzHKWhcVOupqzn22EKJ9QXqjLIqqDsqn:5wWNGrXHTVdNOTPx1SsRcfgVEZU=:eyJzY29wZSI6InNjaG9vbCIsImRlYWRsaW5lIjoxNTM4MjA2NzU0fQ==';
+const token = 'dJVFK8ibSzHKWhcVOupqzn22EKJ9QXqjLIqqDsqn:J3LTDUe1Ucc73TIR69D6u4zMkTI=:eyJzY29wZSI6InNjaG9vbCIsImRlYWRsaW5lIjoxNTM4OTY2MTI1fQ==';
 
 Page({
   data:{
@@ -10,7 +10,7 @@ Page({
       "path":""//选择图片icon的URL地址，必须是网络地址，不能是本地地址，如果不填则选默认图标
     },
     qiniu:{
-      uploadNumber:9,//一次性选择图片的最大限制,默认9张
+      uploadNumber:9,//可以上传图片的数量限制,默认是九张
       region: "SCN",//ECN, SCN, NCN, NA，您的七牛存储区域
       token: token,//七牛上传token凭证
       domain: "http://image.kucaroom.com"//您配置的七牛CDN域名

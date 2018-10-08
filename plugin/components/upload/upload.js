@@ -7,7 +7,8 @@ Component({
   data: {
     imageArray:[],
     iconInfo: {},
-    qiniuInfo:{}
+    qiniuInfo:{},
+    hiddenIcon:false
   },
   properties: {
     iconInfo: {
@@ -98,9 +99,11 @@ Component({
     selectImage: function () {
       let _this = this;
       let configs = _this.configQiniu();
+      let limitNumber = _this.data.qiniuInfo.uploadNumber;
+      let imageLength = _this.data.imageArray.length;
 
       wx.chooseImage({
-        count: _this.data.qiniuInfo.uploadNumber, // 默认9
+        count: (limitNumber - imageLength), // 默认9
         sizeType: ['original', 'compressed'],
         sourceType: ['album', 'camera'],
         success: function (res) {
@@ -114,6 +117,14 @@ Component({
             imagePosition = 0;
           }else{
             imagePosition = temArrayLength - 1;
+          }
+
+          console.log("数量：" + (imageLength + filePaths.length));
+          console.log("限制数数量：" + limitNumber);
+
+          if ((imageLength + filePaths.length) >= limitNumber){
+            console.log("隐藏");
+            _this.setData({ hiddenIcon:true})
           }
 
           wx.showLoading({
@@ -170,8 +181,14 @@ Component({
         }
       });
 
+      let hidden = true;
+      if(newArray.length < this.data.qiniuInfo.uploadNumber){
+         hidden = false;
+      }
+
       this.setData({
-        imageArray: newArray
+        imageArray: newArray,
+        hiddenIcon: hidden
       });
 
       this.triggerEvent("delete", newArray);

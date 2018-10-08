@@ -17,6 +17,7 @@
         </view>
     <view>
       <image  class='upload-image' 
+              wx:if="{{!hiddenIcon}}"
               bindtap='selectImage'
               style='width:{{iconInfo.width}};height:{{iconInfo.height}}'
               src='{{iconInfo.path}}'></image>
