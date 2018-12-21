@@ -80,9 +80,10 @@ Page({
   data:{
     test:"plugin",
     icon:{//上传图片的icon
-      "width":"130rpx",//图片和图标的宽，选填
-      "height": "130rpx",//图片和图标的高，选填
-      "path":""//选择图片icon的URL地址，必须是网络地址，不能是本地地址，如果不填则选默认图标
+      width:"130rpx",//图片和图标的宽，选填
+      height: "130rpx",//图片和图标的高，选填
+      path:"",//选择图片icon的URL地址，必须是网络地址，不能是本地地址，如果不填则选默认图标,
+      showImage:true//是否显示上传后的图片
     },
     qiniu:{
       uploadNumber:9,//可以上传图片的数量限制,默认九张
@@ -138,6 +139,7 @@ Page({
 |width   | String  | 130rpx  | 上传图片icon的宽，选填  |
 |height   | String  | 130rpx  | 上传图片icon的高 ，选填 |
 | path  | String  | 有默认图标  | 图标的地址，如果需要自行定制，请输入一个网络地址，不能使小程序的本地地址  |
+| showImage  | boole  | false  | 是否显示上传后的图片  |
 
 #### qiniu-info参数
 

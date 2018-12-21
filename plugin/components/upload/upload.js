@@ -8,7 +8,8 @@ Component({
     imageArray:[],
     iconInfo: {},
     qiniuInfo:{},
-    hiddenIcon:false
+    hiddenIcon:false,
+    showImage:true
   },
   properties: {
     iconInfo: {
@@ -28,10 +29,14 @@ Component({
             newData.path = '/image/select-image.png';
           }
 
-          console.log(newData)
+          let theShowImage = this.data.showImage;
+          if (newData.showImage != '' || newData.showImage != undefined){
+            theShowImage = newData.showImage;
+          }
 
           this.setData({
-            iconInfo:newData
+            iconInfo:newData,
+            showImage: theShowImage
           })
         }
     },
@@ -119,11 +124,7 @@ Component({
             imagePosition = temArrayLength - 1;
           }
 
-          console.log("数量：" + (imageLength + filePaths.length));
-          console.log("限制数数量：" + limitNumber);
-
           if ((imageLength + filePaths.length) >= limitNumber){
-            console.log("隐藏");
             _this.setData({ hiddenIcon:true})
           }
 
@@ -139,14 +140,12 @@ Component({
                 wx.hideLoading();
               }
 
-              console.log("上传结果:" + res.error);
-
               if (res.error == undefined) {
-                temArray[temArrayLength].uploadResult = res;
+                temArray[index].uploadResult = res;
                 _this.setData({
                   imageArray: temArray
                 });
-                console.log("内部获取到的照片：" + JSON.stringify(temArray));
+
                 _this.triggerEvent("success", temArray);
               }else{
                 //上传失败
@@ -156,8 +155,6 @@ Component({
             })
 
           });
-
-          console.log("temArray:" + JSON.stringify(temArray))
 
           _this.setData({
             imageArray: temArray
