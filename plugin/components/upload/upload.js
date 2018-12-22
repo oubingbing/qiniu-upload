@@ -29,14 +29,13 @@ Component({
             newData.path = '/image/select-image.png';
           }
 
-          let theShowImage = this.data.showImage;
-          if (newData.showImage != '' || newData.showImage != undefined){
-            theShowImage = newData.showImage;
+          if (newData.showImage == '' || newData.showImage == undefined){
+            newData.showImage = true;
           }
 
           this.setData({
             iconInfo:newData,
-            showImage: theShowImage
+            showImage: newData.showImage
           })
         }
     },
@@ -103,9 +102,9 @@ Component({
    */
     selectImage: function () {
       let _this = this;
-      let configs = _this.configQiniu();
-      let limitNumber = _this.data.qiniuInfo.uploadNumber;
-      let imageLength = _this.data.imageArray.length;
+      let configs = this.configQiniu();
+      let limitNumber = this.data.qiniuInfo.uploadNumber;
+      let imageLength = this.data.imageArray.length;
 
       wx.chooseImage({
         count: (limitNumber - imageLength), // 默认9
@@ -141,7 +140,7 @@ Component({
               }
 
               if (res.error == undefined) {
-                temArray[index].uploadResult = res;
+                temArray[temArrayLength+index].uploadResult = res;
                 _this.setData({
                   imageArray: temArray
                 });
@@ -190,7 +189,5 @@ Component({
 
       this.triggerEvent("delete", newArray);
     }
-
   },
-
 })
