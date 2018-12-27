@@ -15,7 +15,8 @@ Page({
       uploadNumber:9,//可以上传图片的数量限制,默认是九张
       region: "SCN",//ECN, SCN, NCN, NA，您的七牛存储区域
       token: token,//七牛上传token凭证
-      domain: "http://image.kucaroom.com"//您配置的七牛CDN域名
+      domain: "http://image.kucaroom.com",//您配置的七牛CDN域名
+      returnAllImage:true,//是否返回上传图片的数组,false上传一个返回一个
     }
   },
   onLoad: function() {
@@ -26,7 +27,8 @@ Page({
    * 上传成功后的回调,返回已上传的图片数组
    */
   uploadSuccess:function(uploadImage){
-    console.log("上传后获得的图片数组：" + JSON.stringify(uploadImage.detail));
+    console.log("上传后获得的图片数组：");
+    console.log(JSON.stringify(uploadImage.detail))
   },
 
   /**

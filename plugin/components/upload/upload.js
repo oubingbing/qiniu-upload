@@ -56,6 +56,11 @@ Component({
           return false;
         }
 
+
+        if (newData.returnAllImage == undefined) {
+          newData.returnAllImage = true;
+        }
+
         this.setData({
           qiniuInfo: newData
         })
@@ -85,8 +90,8 @@ Component({
     },
 
     /**
-     * 选择图片并且上传到七牛
-     */
+    * 选择图片并且上传到七牛
+    */
     selectImage: function () {
       let configs = this.configQiniu();
       let limitNumber = this.data.qiniuInfo.uploadNumber;
@@ -103,14 +108,14 @@ Component({
           let position = res.tempFilePaths.length - 1;
           let temArrayLength = temArray.length;
           let imagePosition = 0;
-          if(temArrayLength == 0){
+          if (temArrayLength == 0) {
             imagePosition = 0;
-          }else{
+          } else {
             imagePosition = temArrayLength - 1;
           }
 
-          if ((imageLength + filePaths.length) >= limitNumber && this.data.iconInfo.showImage){
-            this.setData({ hiddenIcon:true})
+          if ((imageLength + filePaths.length) >= limitNumber) {
+            this.setData({ hiddenIcon: true })
           }
 
           wx.showLoading({
@@ -118,7 +123,7 @@ Component({
           })
 
           filePaths.map((item, index) => {
-            temArray.push({ "localPath": item});
+            temArray.push({ "localPath": item });
 
             uploader.upload(configs, item, res => {
               if (position == index) {
@@ -126,24 +131,32 @@ Component({
               }
 
               if (res.error == undefined) {
-                temArray[index].uploadResult = res;
-                this.setData({
-                  imageArray: temArray
-                });
+                if (this.data.qiniuInfo.returnAllImage == true){
+                  temArray[temArrayLength + index].uploadResult = res;
+                  this.setData({
+                    imageArray: temArray
+                  });
+                  this.triggerEvent("success", temArray);
+                }else{
+                  this.triggerEvent("success", res);
+                }
 
-                this.triggerEvent("success", temArray);
-              }else{
+              } else {
                 //上传失败
                 this.triggerEvent("error", res);
                 console.error("上传失败:" + JSON.stringify(res));
               }
             })
+
           });
+
           this.setData({
             imageArray: temArray
           });
+
         }
       })
+
     },
 
     /**

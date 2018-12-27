@@ -89,7 +89,8 @@ Page({
       uploadNumber:9,//可以上传图片的数量限制,默认九张
       region: "SCN",//ECN, SCN, NCN, NA，您的七牛存储区域
       token: token,//七牛上传token凭证
-      domain: "http://image.kucaroom.com"//您配置的七牛CDN域名
+      domain: "http://image.kucaroom.com",//您配置的七牛CDN域名
+      returnAllImage:false,//是否返回上传图片的数组,false上传一个返回一个
     }
   },
   onLoad: function() {
@@ -149,6 +150,7 @@ Page({
 |region   | String  |   | ECN, SCN, NCN, NA，您的七牛存储区域 |
 | token  | String  |   | 七牛上传认证token，需要您再后台服务器请求七牛服务器活动，并且维护token的有效期 |
 | domain  | String  |   | 在七牛配置CDN域名，七牛测试域名有限制，所以需要您在七牛后台配置一个备案域名 |
+| returnAllImage  | boole  | true  | 是否返回所有图片，true返回所有图片的数组，FALSE上传一个返回一个 |
 
 #### 上传成功返回参数
 ```
