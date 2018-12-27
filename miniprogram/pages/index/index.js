@@ -1,5 +1,5 @@
 var plugin = requirePlugin("myPlugin") //引入插件
-const token = 'dJVFK8ibSzHKWhcVOupqzn22EKJ9QXqjLIqqDsqn:Q56IW8UBRHDrrlgRxnl8YpnNWk8=:eyJzY29wZSI6InNjaG9vbCIsImRlYWRsaW5lIjoxNTQ1MzkxNDQ0fQ==';
+const token = 'dJVFK8ibSzHKWhcVOupqzn22EKJ9QXqjLIqqDsqn:w2AIRbpsDZaNSAPq8yhTj1Fkglk=:eyJyZXR1cm5Cb2R5Ijoie1wia2V5XCI6XCIkKGtleSlcIixcImhhc2hcIjpcIiQoZXRhZylcIixcImJ1Y2tldFwiOlwiJChidWNrZXQpXCIsXCJmc2l6ZVwiOiQoZnNpemUpLFwid2lkdGhcIjpcIiQoaW1hZ2VJbmZvLndpZHRoKVwiLFwiaGVpZ2h0XCI6XCIkKGltYWdlSW5mby5oZWlnaHQpXCJ9Iiwic2NvcGUiOiJzY2hvb2wiLCJkZWFkbGluZSI6MTU0NTk2MTIwMn0=';
 
 Page({
   data:{
@@ -8,7 +8,7 @@ Page({
       width:"130rpx",//图片和图标的宽，选填
       height: "130rpx",//图片和图标的高，选填
       path:"",//选择图片icon的URL地址，必须是网络地址，不能是本地地址，如果不填则选默认图标,
-      showImage:true//是否显示上传后的图片
+      showImage:false//是否显示上传后的图片
     },
     qiniu:{
       uploadNumber:9,//可以上传图片的数量限制,默认是九张

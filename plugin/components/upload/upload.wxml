@@ -1,7 +1,7 @@
 <view class='image-form'>
   <view class='select-image'>
     <view class='image-item'
-          wx:if="{{showImage}}" 
+          wx:if="{{iconInfo.showImage}}" 
           wx:for="{{imageArray}}" 
           wx:key='{{imageArray}}'>
       <image class='upload-image' 

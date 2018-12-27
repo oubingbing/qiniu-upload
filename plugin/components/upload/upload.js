@@ -8,8 +8,7 @@ Component({
     imageArray:[],
     iconInfo: {},
     qiniuInfo:{},
-    hiddenIcon:false,
-    showImage:true
+    hiddenIcon:false
   },
   properties: {
     iconInfo: {
@@ -29,14 +28,12 @@ Component({
             newData.path = '/image/select-image.png';
           }
 
-          let theShowImage = this.data.showImage;
-          if (newData.showImage != '' || newData.showImage != undefined){
-            theShowImage = newData.showImage;
+          if (newData.showImage == undefined){
+            newData.showImage = true;
           }
 
           this.setData({
-            iconInfo:newData,
-            showImage: theShowImage
+            iconInfo:newData
           })
         }
     },
@@ -54,11 +51,6 @@ Component({
           return false;
         }
 
-        if (newData.token == '' || newData.token == undefined) {
-          console.error("qiniu.token不能为空");
-          return false;
-        }
-
         if (newData.domain == '' || newData.domain == undefined) {
           console.error("qiniu.domain不能为空");
           return false;
@@ -69,13 +61,6 @@ Component({
         })
       }
     }
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  attached: function (options) {
-
   },
 
   methods:{
@@ -98,22 +83,22 @@ Component({
 
       return this.data.qiniuInfo;
     },
+
     /**
-   * 选择图片并且上传到七牛
-   */
+     * 选择图片并且上传到七牛
+     */
     selectImage: function () {
-      let _this = this;
-      let configs = _this.configQiniu();
-      let limitNumber = _this.data.qiniuInfo.uploadNumber;
-      let imageLength = _this.data.imageArray.length;
+      let configs = this.configQiniu();
+      let limitNumber = this.data.qiniuInfo.uploadNumber;
+      let imageLength = this.data.imageArray.length;
 
       wx.chooseImage({
         count: (limitNumber - imageLength), // 默认9
         sizeType: ['original', 'compressed'],
         sourceType: ['album', 'camera'],
-        success: function (res) {
+        success: res=> {
 
-          let temArray = _this.data.imageArray;
+          let temArray = this.data.imageArray;
           var filePaths = res.tempFilePaths;
           let position = res.tempFilePaths.length - 1;
           let temArrayLength = temArray.length;
@@ -124,8 +109,8 @@ Component({
             imagePosition = temArrayLength - 1;
           }
 
-          if ((imageLength + filePaths.length) >= limitNumber){
-            _this.setData({ hiddenIcon:true})
+          if ((imageLength + filePaths.length) >= limitNumber && this.data.iconInfo.showImage){
+            this.setData({ hiddenIcon:true})
           }
 
           wx.showLoading({
@@ -142,27 +127,23 @@ Component({
 
               if (res.error == undefined) {
                 temArray[index].uploadResult = res;
-                _this.setData({
+                this.setData({
                   imageArray: temArray
                 });
 
-                _this.triggerEvent("success", temArray);
+                this.triggerEvent("success", temArray);
               }else{
                 //上传失败
-                _this.triggerEvent("error", res);
+                this.triggerEvent("error", res);
                 console.error("上传失败:" + JSON.stringify(res));
               }
             })
-
           });
-
-          _this.setData({
+          this.setData({
             imageArray: temArray
           });
-
         }
       })
-
     },
 
     /**
@@ -190,7 +171,5 @@ Component({
 
       this.triggerEvent("delete", newArray);
     }
-
   },
-
 })
