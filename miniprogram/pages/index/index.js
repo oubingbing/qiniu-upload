@@ -1,4 +1,5 @@
 var plugin = requirePlugin("myPlugin") //引入插件
+
 const token = 'dJVFK8ibSzHKWhcVOupqzn22EKJ9QXqjLIqqDsqn:w2AIRbpsDZaNSAPq8yhTj1Fkglk=:eyJyZXR1cm5Cb2R5Ijoie1wia2V5XCI6XCIkKGtleSlcIixcImhhc2hcIjpcIiQoZXRhZylcIixcImJ1Y2tldFwiOlwiJChidWNrZXQpXCIsXCJmc2l6ZVwiOiQoZnNpemUpLFwid2lkdGhcIjpcIiQoaW1hZ2VJbmZvLndpZHRoKVwiLFwiaGVpZ2h0XCI6XCIkKGltYWdlSW5mby5oZWlnaHQpXCJ9Iiwic2NvcGUiOiJzY2hvb2wiLCJkZWFkbGluZSI6MTU0NTk2MTIwMn0=';
 
 Page({
