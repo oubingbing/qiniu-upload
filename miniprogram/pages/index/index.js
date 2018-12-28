@@ -2,6 +2,7 @@ var plugin = requirePlugin("myPlugin") //引入插件
 
 const token = 'dJVFK8ibSzHKWhcVOupqzn22EKJ9QXqjLIqqDsqn:w2AIRbpsDZaNSAPq8yhTj1Fkglk=:eyJyZXR1cm5Cb2R5Ijoie1wia2V5XCI6XCIkKGtleSlcIixcImhhc2hcIjpcIiQoZXRhZylcIixcImJ1Y2tldFwiOlwiJChidWNrZXQpXCIsXCJmc2l6ZVwiOiQoZnNpemUpLFwid2lkdGhcIjpcIiQoaW1hZ2VJbmZvLndpZHRoKVwiLFwiaGVpZ2h0XCI6XCIkKGltYWdlSW5mby5oZWlnaHQpXCJ9Iiwic2NvcGUiOiJzY2hvb2wiLCJkZWFkbGluZSI6MTU0NTk2MTIwMn0=';
 
+
 Page({
   data:{
     test:"plugin",
@@ -15,8 +16,7 @@ Page({
       uploadNumber:9,//可以上传图片的数量限制,默认是九张
       region: "SCN",//ECN, SCN, NCN, NA，您的七牛存储区域
       token: token,//七牛上传token凭证
-      domain: "http://image.kucaroom.com",//您配置的七牛CDN域名
-      returnAllImage:true,//是否返回上传图片的数组,false上传一个返回一个
+      domain: "http://image.kucaroom.com",//您配置的七牛CDN域名:true,//是否返回上传图片的数组,false上传一个返回一个
     }
   },
   onLoad: function() {

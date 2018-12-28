@@ -190,10 +190,10 @@ uploadResult：上传七牛后成功返回的参数
 微信小程序需要在微信管理后台绑定相应的域名，否则会被拦截，根据自己七牛存储区域绑定对应的域名，存储区域与域名的对应如下所示
 
 ```
-ECN : https://up.qbox.me
-NCN : https://up-z1.qbox.me
-SCN : https://up-z2.qbox.me
-NA  : https://up-na0.qbox.me
+ECN（华东） : https://up.qbox.me
+NCN （华北）: https://up-z1.qbox.me
+SCN （华南）: https://up-z2.qbox.me
+NA  （北美）: https://up-na0.qbox.me
 
 ```
 
